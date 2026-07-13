@@ -1,0 +1,71 @@
+{
+  "id": "<STRING>", /* REQUIRED. Unique id of a collection that cannot already exist in the CDSE STAC catalogue */
+  "type": "Collection",
+  "links": [
+    {
+      "rel": "license",
+      "href": "https://dataspace.copernicus.eu/sites/default/files/media/files/2025-06/copernicus_contributing_mission_data_access_v2_cop_dem_licenses.pdf",
+      "type": "application/pdf",
+      "title": "Legal notice on the use of Copernicus Contributing Missions data"
+    }
+  ],
+  "title": "<STRING>", /* REQUIRED. Unique id of a collection that cannot already exist in the CDSE STAC catalogue */
+  "assets": {
+    "thumbnail": {
+      "href": "<STRING>", /* REQUIRED. Public https link to the collection thumbnail in JPEG format. */
+      "type": "image/jpeg",
+      "roles": [
+        "thumbnail"
+      ],
+      "title": "Thumbnail",
+      "proj:code": null,
+      "proj:shape": ["<INTEGER>", "<INTEGER>"] /* REQUIRED. Number of lines and columns of the collection thumbnail. */
+    }
+  },
+  "extent": {
+    "spatial": {
+      "bbox": [
+        ["<INTEGER>", "<INTEGER>", "<INTEGER>", "<INTEGER>"] /* REQUIRED. Bounding box for the collection in format [Lon_min, Lat_min, Lon_max, Lat_max] */
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "YYYY-MM-DDTHH:mm:SSZ", /* REQUIRED. Datetime of a collection start in UTC timezone. */
+          "YYYY-MM-DDTHH:mm:SSZ" /* REQUIRED. Datetime of a collection end in UTC timezone. If the collection is still on-going then put 'null'. */
+        ]
+      ]
+    }
+  },
+  "license": "other",
+  "keywords": [ /* REQUIRED. Comma separated list of keywords for the collection. These will be used for the fast free-text search filtering. */
+    "<STRING>",
+    "<STRING>"
+  ],
+  "providers": [
+    {
+      "url": "<STRING>", /* REQUIRED. HTTPs link to the CCM CAT-1 provider webpage. */
+      "name": "<STRING>", /* REQUIRED. Name of the CCM CAT-1 provider. */
+      "roles": [
+        "producer"
+      ]
+    },
+    {
+      "url": "https://commission.europa.eu/",
+      "name": "European Commission",
+      "roles": [
+        "licensor"
+      ]
+    },
+    {
+      "url": "https://cloudferro.com/",
+      "name": "CloudFerro",
+      "roles": [
+        "host"
+      ]
+    }
+  ],
+  "description": "<STRING>", /* REQUIRED. 2-3 informative sentences describing the collection. */
+  "sci:doi": "<STRING>", /* OPTIONAL. DOI reference to the collection if exists. */
+  "sci:citation": "<STRING>" /* Optional. Text how to cite the collection. */
+}

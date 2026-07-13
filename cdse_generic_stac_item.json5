@@ -1,0 +1,212 @@
+{
+    "type":"Feature",
+    "stac_version":"1.1.0",
+    "stac_extensions": [
+    	"https://stac-extensions.github.io/alternate-assets/v1.2.0/schema.json", /* ADDED BY CDSE */
+    	"https://stac-extensions.github.io/authentication/v1.1.0/schema.json", /* ADDED BY CDSE */
+    	"https://stac-extensions.github.io/classification/v2.0.0/schema.json", /* OPTIONAL */
+    	"https://stac-extensions.github.io/eo/v2.0.0/schema.json", /* REQUIRED IF APPLICABLE */
+    	"https://stac-extensions.github.io/file/v2.1.0/schema.json", /* REQUIRED */
+    	"https://stac-extensions.github.io/grid/v1.1.0/schema.json", /* REQUIRED IF APPLICABLE */
+        "https://stac-extensions.github.io/processing/v1.2.0/schema.json", /* REQUIRED */
+        "https://stac-extensions.github.io/product/v1.0.0/schema.json", /* REQUIRED */
+        "https://stac-extensions.github.io/projection/v2.0.0/schema.json", /* REQUIRED */
+        "https://stac-extensions.github.io/raster/v2.0.0/schema.json", /* REQUIRED */
+        "https://stac-extensions.github.io/sar/v1.2.0/schema.json", /* REQUIRED IF APPLICABLE */
+        "https://stac-extensions.github.io/sat/v1.1.0/schema.json", /* REQUIRED IF APPLICABLE */
+        "https://stac-extensions.github.io/timestamps/v1.1.0/schema.json", /* ADDED BY CDSE */
+        "https://stac-extensions.github.io/view/v1.0.0/schema.json" /* OPTIONAL */
+    ],
+    "id":"<PRODUCT_ID>", /* REQUIRED Should be unique across the current and obsolete products published in the CDSE */
+    "bbox": [
+        "<WEST_BOUNDING_LONGITUDE>",
+        "<SOUTH_BOUNDING_LATITUDE>",
+        "<EAST_BOUNDING_LONGITUDE>",
+        "<NORTH_BOUNDING_LATITUDE>"
+    ],
+    "geometry": {
+        "type":"Polygon",
+        "coordinates": [
+            [
+                [
+                    "<WEST_BOUNDING_LONGITUDE>",
+                    "<SOUTH_BOUNDING_LATITUDE>"
+                ],
+                [
+                    "<EAST_BOUNDING_LONGITUDE>",
+                    "<SOUTH_BOUNDING_LATITUDE>"
+                ],
+                [
+                    "<EAST_BOUNDING_LONGITUDE>",
+                    "<NORTH_BOUNDING_LATITUDE>"
+                ],
+                [
+                    "<WEST_BOUNDING_LONGITUDE>",
+                    "<NORTH_BOUNDING_LATITUDE>"
+                ],
+                [
+                    "<WEST_BOUNDING_LONGITUDE>",
+                    "<SOUTH_BOUNDING_LATITUDE>"
+                ]
+            ]
+        ]
+    },
+    "properties": {
+    	"auth:schemes":"<OBJECT>", /* ADDED BY CDSE */
+        "created":"<DATE>", /* REQUIRED. Creation date and time of a product, in UTC. */
+        "datetime":"<DATE>", /* REQUIRED. The searchable date and time of the assets, which must be in UTC. It is formatted according to RFC 3339, section 5.6." */
+        "description":"<STRING>", /* OPTIONAL. Detailed multi-line description to fully explain the STAC entity. CommonMark 0.29 syntax MAY be used for rich text representation. */
+        "end_datetime":"<DATE>", /* REQUIRED. The last or end date and time for the resource, in UTC. It is formatted as date-time according to RFC 3339, section 5.6. */
+        "expires":"<DATE>", /* ADDED BY CDSE. Date and time the corresponding data (see below) expires (is not valid any longer), in UTC. */
+        "eo:cloud_cover":"<NUMBER>", /* OPTIONAL. Estimate of cloud as a percentage (0-100). */
+        "eo:snow_cover":"<NUMBER>", /* OPTIONAL. Estimate of snow as a percentage (0-100). */
+        "grid:code":"<STRING>", /* REQUIRED IF APPLICABLE. https://github.com/stac-extensions/grid#gridcode  */
+        "gsd":"<NUMBER>", /* REQUIRED. Ground Sample Distance at the sensor, in meters (m), must be greater than 0. https://github.com/radiantearth/stac-spec/blob/master/commons/common-metadata.md#gsd  */
+        "instruments":["<STRING>","<STRING>"], /* REQUIRED. list of instruments or sensor used (e.g., MODIS, ASTER, OLI, Canon F-1). */
+        "platform":"<STRING>", /* "REQUIRED. Unique name of the specific platform to which the instrument is attached. */
+        "processing:facility":"<STRING>", /* REQUIRED. The name of the facility that produced the data. For example, Copernicus S1 Core Ground Segment - DPA for product of Sentinel-1 satellites. */
+        "processing:level":"<STRING>", /* REQUIRED. https://github.com/stac-extensions/processing?tab=readme-ov-file#suggested-processing-levels */
+        "processing:lineage":"<STRING>", /* OPTIONAL. Lineage Information provided as free text information about the how observations were processed or models that were used to create the resource being described NASA ISO. For example, GRD Post Processing for GRD product of Sentinel-1 satellites. CommonMark 0.29 syntax MAY be used for rich text representation. */
+        "processing:software":"<OBJECT>", /* OPTIONAL. A dictionary with name/version for key/value describing one or more applications or libraries that were involved during the production of the data for provenance purposes. */
+        "processing:version":"<STRING>", /* OPTIONAL. The version of the primary processing software or processing chain that produced the data. For example, this could be the processing baseline for the Sentinel missions. */
+        "product:type":"<STRING>", /* REQUIRED. The product type., */
+        "product:timeliness":"<STRING>", /* REQUIRED. The average expected timeliness of the product as an ISO 8601 Duration., */
+        "product:timeliness_category":"<STRING>", /* OPTIONAL. A proprietary category identifier for the timeliness of the product. e.g. NRT, */
+        "proj:code":"<STRING>|NULL", /* REQUIRED Authority and specific code of the data source (e.g., EPSG:3857) NULL for data in satellite projection. */
+        "proj:shape": [ /* REQUIRED Number of pixels in Y and X directions for the default grid */
+            "<PROJ_SHAPE_HEIGHT>",
+            "<PROJ_SHAPE_WIDTH>"
+        ],
+        "proj:transform": [ /* REQUIRED The affine transformation coefficients for the default grid https://github.com/stac-extensions/projection?tab=readme-ov-file#fields */
+            "<PROJ_TRANSFORM_0>",
+            "<PROJ_TRANSFORM_1>",
+            "<PROJ_TRANSFORM_2>",
+            "<PROJ_TRANSFORM_3>",
+            "<PROJ_TRANSFORM_4>",
+            "<PROJ_TRANSFORM_5>",
+            "<PROJ_TRANSFORM_6>",
+            "<PROJ_TRANSFORM_7>",
+            "<PROJ_TRANSFORM_8>"
+        ],
+        "published":"<DATE>", /* ADDED BY CDSE. Date and time the corresponding STAC entity or Asset (see below) was updated last, in UTC. */
+		"sar:center_frequency":"<NUMBER>", /* REQUIRED IF APPLICABLE The center frequency of the instrument, in gigahertz (GHz). */
+		"sar:frequency_band":"<STRING>", /* REQUIRED IF APPLICABLE  The common name for the frequency band to make it easier to search for bands across instruments. https://github.com/stac-extensions/sar?tab=readme-ov-file#sarfrequency_band---common-frequency-band-names */
+		"sar:instrument_mode":"<STRING>", /* REQUIRED IF APPLICABLE The name of the sensor acquisition mode that is commonly used. This should be the short name, if available. For example, WV for Wave mode of Sentinel-1 and Envisat ASAR satellites. */
+		"sar:observation_direction": "<STRING>", /* REQUIRED IF APPLICABLE Antenna pointing direction relative to the flight trajectory of the satellite, either left or right. */
+		"sar:pixel_spacing_azimuth": "<NUMBER>", /* REQUIRED IF APPLICABLE The azimuth pixel spacing, which is the distance between adjacent pixels parallel to the flight path, in meters (m). */
+		"sar:pixel_spacing_range": "<NUMBER>", /* REQUIRED IF APPLICABLE The range pixel spacing, which is the distance between adjacent pixels perpendicular to the flight path, in meters (m). */
+		"sar:polarizations": ["<STRING>","<STRING>"], /* REQUIRED IF APPLICABLE */
+		"sar:relative_burst":"<NUMBER>", /* REQUIRED IF APPLICABLE Identification number that uniquely identifies a burst cycle within each repeat cycle. */
+		"sat:absolute_orbit":"<NUMBER>", /* REQUIRED IF APPLICABLE. The absolute orbit number at the time of acquisition. */
+		"sat:orbit_cycle":"<NUMBER>", /* REQUIRED IF APPLICABLE. The number of repeat cycle done by the satellite at the time of the acquisition. Repeat cycle is the time between two successive identical orbits. */
+        "sat:orbit_state":"<STRING>", /* REQUIRED IF APPLICABLE. The state of the orbit. Either ascending or descending for polar orbiting satellites, or geostationary for geosynchronous satellites */
+		"sat:platform_international_designator":"<STRING>", /* REQUIRED IF APPLICABLE. The International Designator, also known as COSPAR ID, and NSSDCA ID */
+		"sat:relative_orbit":"<NUMBER>", /* REQUIRED IF APPLICABLE. The relative orbit number at the time of acquisition.       */
+        "start_datetime":"<DATE>", /* REQUIRED. The first or start date and time for the resource, in UTC. It is formatted as date-time according to RFC 3339, section 5.6 */
+        "statistics":"<OBJECT>", /* OPTIONAL https://github.com/stac-extensions/stats#items-stats */
+    	"storage:schemes":"<OBJECT>", /* ADDED BY CDSE */
+        "updated":"<DATE>", /* ADDED BY CDSE. Date and time the corresponding STAC entity or Asset (see below) was updated last, in UTC. */
+		"view:azimuth":"<NUMBER>", /* OPTIONAL. Viewing azimuth angle. The angle measured from the sub-satellite point (point on the ground below the platform) between the scene center and true north. Measured clockwise from north in degrees (0-360). */
+		"view:incidence_angle":"<NUMBER>", /* OPTIONAL. The incidence angle is the angle between the vertical (normal) to the intercepting surface and the line of sight back to the satellite at the scene center. Measured in degrees (0-90). */
+		"view:sun_azimuth":"<NUMBER>", /* OPTIONAL. Viewing azimuth angle. The angle measured from the sub-satellite point (point on the ground below the platform) between the scene center and true north. Measured clockwise from north in degrees (0-360). */
+		"view:sun_elevation":"<NUMBER>", /* OPTIONAL. Sun elevation angle. The angle from the tangent of the scene center point to the sun. Measured from the horizon in degrees (-90-90). Negative values indicate the sun is below the horizon, e.g. sun elevation of -10° means the data was captured during nautical twilight. */
+    },
+    "collection":"<CDSE_COLLECTION_NAME>", /* REQUIRED */
+    "links": [
+	{
+		"rel":"collection",
+		"href":"<CDSE_COLLECTION_LINK>",
+		"type":"application/json"
+	},
+	{
+		"rel":"parent",
+		"href":"<CDSE_COLLECTION_LINK>",
+		"type":"application/json"
+	},
+	{
+		"rel":"root",
+		"href":"https://stac.dataspace.copernicus.eu/v1/",
+		"type":"application/json"
+	},
+	{
+		"rel":"SDI_URL", /* REQUIRED. */
+		"href":"<Relevant URL from https://sdi.eea.europa.eu/catalogue/srv/eng/catalog.search>",
+		"type":"text/html"
+	},
+	{ /* ADDED BY CDSE */
+		"rel": "self",
+		"type": "application/geo+json",
+		"href": "<CDSE_ITEM_LINK>"
+	},
+	{ /* ADDED BY CDSE */
+		"rel": "version-history",
+		"href": "<CDSE_TRACEBILITY_LINK>",
+		"type": "application/json",
+		"title": "Product history record from the CDSE traceability service"
+	},
+	{ /* ADDED BY CDSE */
+		"rel": "enclosure",
+		"href": "<CDSE_S3_PRODUCT_PATH>",
+		"type": "application/x-directory",
+		"title": "S3 path to source directory",
+		"auth:refs": "<OBJECT>", 
+		"storage:refs": "<OBJECT>"
+	}
+    ],
+    "assets": {
+        "Product": {
+			"alternate:":"<OBJECT>", /* ADDED BY CDSE */
+			"alternate:name":"S3", /* ADDED BY CDSE */
+			"auth:refs": ["<STRING>","<STRING>"], /* ADDED BY CDSE */
+        	"file:checksum":"<STRING>", /* ADDED BY CDSE Provides a way to specify TAR file checksums (i.e. BLAKE3). The hashes are self-identifying hashes as described in the Multihash (https://github.com/multiformats/multihash) specification and must be encoded as hexadecimal (base 16) string with lowercase letters.  */
+        	"file:size":"<NUMBER>", /* ADDED BY CDSE The TAR file size, specified in bytes. */
+        	"href":"s3://CLMS_PRODUCER_BUCKET_PATH/YYYY/MM/DD/PRODUCT_NAME.tar>", /*  YYYY/MM/DD <- year/month/date of a product upload */
+        	"roles": [
+            		"data",
+                	"metadata",
+                	"archive"
+            	],
+        	"storage:refs": ["<STRING>","<STRING>"], /* ADDED BY CDSE */
+        	"title":"TAR product", /* REQUIRED */
+        	"type":"application/tar", /* REQUIRED */
+        },
+        "<DATA_FILE_NAME>": {
+			"alternate:":"<OBJECT>", /* ADDED BY CDSE */
+			"alternate:name":"S3", /* ADDED BY CDSE */
+        	"auth:refs": ["<STRING>","<STRING>"], /* ADDED BY CDSE */
+        	"data_type":"<STRING>", /* REQUIRED https://github.com/radiantearth/stac-spec/blob/master/commons/common-metadata.md#data-types */
+        	"description":"<STRING>", /* OPTIONAL A description of the Asset providing additional details, such as how it was processed or created. CommonMark 0.29 syntax MAY be used for rich text representation. */
+	        "eo:center_wavelength":"<NUMBER>", /* REQUIRED IF APPLICABLE. The center wavelength of the band, in micrometers (μm). */
+        	"eo:common_name":"<STRING>", /* REQUIRED IF APPLICABLE. The name commonly used to refer to the band to make it easier to search for bands across instruments. See the list of accepted common names. */
+	        "eo:full_width_half_max":"<NUMBER>", /* REQUIRED IF APPLICABLE. Full width at half maximum (FWHM). The width of the band, as measured at half the maximum transmission, in micrometers (μm). */
+        	"file:checksum":"<STRING>", /* REQUIRED Provides a way to specify file checksums (e.g. BLAKE2, MD5, SHA1, SHA2, SHA3). The hashes are self-identifying hashes as described in the Multihash https://github.com/multiformats/multihash specification and must be encoded as hexadecimal string with lowercase letters.  */
+        	"file:local_path":"<PRODUCT_NAME>/../<FILE_NAME>", /* REQUIRED https://github.com/stac-extensions/file?tab=readme-ov-file#local-path */
+        	"file:size":"<NUMBER>", /* REQUIRED The file size, specified in bytes. */
+        	"nodata":"<NUMBER>", /* REQUIRED IF APPLICABLE https://github.com/radiantearth/stac-spec/blob/master/commons/common-metadata.md#no-data */
+        	"raster:scale":"<NUMBER>", /* REQUIRED IF APPLICABLE Multiplicator factor of the pixel value to transform into the value (i.e. translate digital number to reflectance) */
+        	"raster:offset":"<NUMBER>", /* REQUIRED IF APPLICABLE Number to be added to the pixel value (after scaling) to transform into the value (i.e. translate digital number to reflectance).  */
+        	"roles": [
+        		"data"
+        	],
+        	"sar:polarizations":["<STRING>"], /* REQUIRED IF APPICABLE */
+        	"storage:refs": ["<STRING>","<STRING>"], /* ADDED BY CDSE */
+        	"title":"<STRING>", /* REQUIRED The displayed title for clients and users. */
+        	"type":"<STRING>" /* REQUIRED, Media type (https://github.com/radiantearth/stac-spec/blob/master/commons/assets.md#media-types) of the asset. See the common media types in the best practice doc for commonly used asset types. e.g. "image/tiff; application=geotiff; profile=cloud-optimized"  */
+        },
+        "<METADATA_FILE_NAME>": {
+			"alternate:":"<OBJECT>", /* ADDED BY CDSE */
+			"alternate:name":"S3", /* ADDED BY CDSE */
+        	"auth:refs": ["<STRING>","<STRING>"], /* ADDED BY CDSE */
+        	"description":"<STRING>", /* OPTIONAL A description of the Asset providing additional details, such as how it was processed or created. CommonMark 0.29 syntax MAY be used for rich text representation. */
+        	"file:checksum":"<STRING>", /* REQUIRED Provides a way to specify file checksums (e.g. BLAKE2, MD5, SHA1, SHA2, SHA3). The hashes are self-identifying hashes as described in the Multihash (https://github.com/multiformats/multihash) specification and must be encoded as hexadecimal (base 16) string with lowercase letters.  */
+        	"file:local_path":"<PRODUCT_NAME>/../<FILE_NAME>", /* REQUIRED https://github.com/stac-extensions/file?tab=readme-ov-file#local-path */
+        	"file:size":"<NUMBER>", /* REQUIRED The file size, specified in bytes. */
+            	"roles": [
+                	"metadata"
+            	],
+        	"storage:refs": ["<STRING>","<STRING>"], /* ADDED BY CDSE */
+        	"title":"Product metadata", /* REQUIRED The displayed title for clients and users. */
+        	"type":"application/xml"  /* REQUIRED, Media type (https://github.com/radiantearth/stac-spec/blob/master/commons/assets.md#media-types) of the asset. See the common media types in the best practice doc for commonly used asset types. */
+        }
+    }
+}

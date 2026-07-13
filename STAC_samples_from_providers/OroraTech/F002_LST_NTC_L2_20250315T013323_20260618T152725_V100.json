@@ -1,0 +1,156 @@
+{
+  "type": "Feature",
+  "stac_version": "1.1.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/eo/v2.0.0/schema.json",
+    "https://stac-extensions.github.io/view/v1.1.0/schema.json",
+    "https://stac-extensions.github.io/processing/v1.2.0/schema.json",
+    "https://stac-extensions.github.io/product/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
+    "https://stac-extensions.github.io/file/v2.1.0/schema.json"
+  ],
+  "id": "F002_LST_NTC_L2_20250315T013323_20260618T152725_V100",
+  "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+      [
+        [
+          [
+            0.926,
+            39.623
+          ],
+          [
+            -1.24,
+            39.313
+          ],
+          [
+            -2.34,
+            42.947
+          ],
+          [
+            -0.059,
+            43.301
+          ],
+          [
+            0.926,
+            39.623
+          ]
+        ]
+      ]
+    ]
+  },
+  "bbox": [
+    -2.34,
+    39.313,
+    0.926,
+    43.301
+  ],
+  "properties": {
+    "description": "OroraTech Level-2 Land Surface Temperature expressed in Kelvin.",
+    "eo:cloud_cover": 0.2367,
+    "processing:facility": "OroraTech",
+    "processing:level": "L2",
+    "processing:version": "v0.1.0",
+    "product:type": "LST_NTC_L2",
+    "product:timeliness": "P7D",
+    "product:timeliness_category": "NTC",
+    "proj:code": "EPSG:4326",
+    "view:azimuth": 248.109,
+    "view:incidence_angle":?,
+    "start_datetime": "2025-03-15T01:33:23.369000Z",
+    "end_datetime": "2025-03-15T01:34:21.935000Z",
+    "created": "2026-06-25T11:34:34.208357Z",
+    "gsd": 200.0,
+    "instruments": [
+      "F002-IR1",
+      "SAFIRE"
+    ],
+    "platform": "F002",
+    "providers": [
+      {
+        "name": "OroraTech",
+        "roles": [
+          "producer",
+          "processor"
+        ],
+        "url": "https://ororatech.com"
+      }
+    ],
+    "datetime": "2025-03-15T01:33:23.369000Z"
+  },
+  "assets": {
+    "lst": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "title": "Land Surface Temperature [K]",
+      "nodata": "nan",
+      "data_type": "float32",
+      "raster:spatial_resolution": 200.0,
+      "bands": [
+        {
+          "name": "lst",
+          "description": "Land Surface Temperature [K]"
+        }
+      ],
+      "created": "2026-06-18T13:29:52Z",
+      "proj:code": "EPSG:4326",
+      "proj:bbox": [
+        -2.335486888885498,
+        39.31550977053121,
+        0.9246282959356904,
+        43.30010223388672
+      ],
+      "proj:shape": [
+        2212,
+        1365
+      ],
+      "proj:transform": [
+        -2.335486888885498,
+        0.0023883627727627754,
+        0.0,
+        43.30010223388672,
+        0.0,
+        -0.0018013528315350413
+      ],
+      "file:checksum": "3c006f6cb23ff42ea33e2d36628c151523e4177525b607d5cbbc0a269986cc55",
+      "file:size": 7349349,
+      "file:local_path": "F002_LST_NTC_L2_20250315T013323_20260618T152725_V100/F002_LST_NTC_L2_20250315T013323_20260618T152725_V100.tif",
+      "roles": [
+        "data"
+      ]
+    },
+    "thumbnail": {
+      "type": "image/png",
+      "title": "Quicklook",
+      "proj:code": "EPSG:4326",
+      "proj:shape": [
+        331,
+        539
+      ],
+      "proj:transform": [
+        -2.335486888885498,
+        0.0023883627727627754,
+        0.0,
+        43.30010223388672,
+        0.0,
+        -0.0018013528315350413
+      ],
+      "file:checksum": "7384cc7c376964513658609a7276c0007e99bc62840d03d61c059329cb5da0cf",
+      "file:size": 202346,
+      "file:local_path": "F002_LST_NTC_L2_20250315T013323_20260618T152725_V100.png",
+      "roles": [
+        "thumbnail",
+        "overview"
+      ]
+    },
+    "Product": {
+      "href": "s3://CCM-ORORATECH-INGESTION/YYYY/MM/DD/F002_LST_NTC_L2_20250315T013323_20260618T152725_V100.tar",
+      "type": "application/tar",
+      "title": "TAR product",
+      "roles": [
+        "data",
+        "archive"
+      ]
+    }
+  },
+  "collection": "ccm-thermal"
+}
