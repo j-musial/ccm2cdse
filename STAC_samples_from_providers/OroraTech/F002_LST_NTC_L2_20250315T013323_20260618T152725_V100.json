@@ -51,7 +51,7 @@
     "processing:facility": "OroraTech",
     "processing:level": "L2",
     "processing:version": "v0.1.0",
-    "product:type": "CCM_ORORATECH_LST",
+    "product:type": "LST_NTC_L2",
     "product:timeliness": "P7D",
     "product:timeliness_category": "NTC",
     "proj:code": "EPSG:4326",
@@ -82,7 +82,7 @@
     "lst": {
       "type": "image/tiff; application=geotiff; profile=cloud-optimized",
       "title": "Land Surface Temperature [K]",
-      "nodata": ?,
+      "nodata": "nan",
       "data_type": "float32",
       "raster:spatial_resolution": 200.0,
       "bands": [
@@ -146,8 +146,6 @@
       "href": "s3://CCM-ORORATECH-INGESTION/YYYY/MM/DD/F002_LST_NTC_L2_20250315T013323_20260618T152725_V100.tar",
       "type": "application/tar",
       "title": "TAR product",
-      "file:checksum": ?,
-      "file:size": ?,
       "roles": [
         "data",
         "archive"
